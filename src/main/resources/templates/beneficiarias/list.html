@@ -1,0 +1,33 @@
+<div th:fragment="view">
+    <h2>Lista de Beneficiarias</h2>
+    <a class="btn btn-primary mb-3" th:href="@{/beneficiarias/nueva}">Nueva Beneficiaria</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Edad</th>
+                <th>Teléfono</th>
+                <th>Correo</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="beneficiaria : ${beneficiarias}">
+                <td th:text="${beneficiaria.id}"></td>
+                <td th:text="${beneficiaria.nombres}"></td>
+                <td th:text="${beneficiaria.apellidos}"></td>
+                <td th:text="${beneficiaria.edad}"></td>
+                <td th:text="${beneficiaria.telefono}"></td>
+                <td th:text="${beneficiaria.correo}"></td>
+                <td>
+                    <a class="btn btn-info btn-sm" th:href="@{/beneficiarias/editar/{id}(id=${beneficiaria.id})}">Editar</a>
+                    <a class="btn btn-danger btn-sm" th:href="@{/beneficiarias/eliminar/{id}(id=${beneficiaria.id})}">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+ 

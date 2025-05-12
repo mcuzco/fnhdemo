@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <title th:text="${title}">Sistema de Agendamiento</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Fundación Nuevos Horizontes</a>
+            <div class="collapse navbar-collapse">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/beneficiarias}">Beneficiarias</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/empleadas}">Empleadas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" th:href="@{/citas}">Citas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        <div th:replace="${view}"></div>
+    </div>
+
+</body>
+</html>
+ 

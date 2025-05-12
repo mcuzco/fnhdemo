@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Listado de Beneficiarias</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-4">
+    <h2>Listado de Beneficiarias</h2>
+
+    <a href="/beneficiarias/nueva" class="btn btn-primary mb-2">Nueva Beneficiaria</a>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Nombres</th>
+                <th>Apellidos</th>
+                <th>Teléfono</th>
+                <th>Dirección</th>
+                <th>Edad</th>
+                <th>Código Carpeta</th>
+                <th>Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="beneficiaria : ${beneficiarias}">
+                <td th:text="${beneficiaria.id}"></td>
+                <td th:text="${beneficiaria.nombres}"></td>
+                <td th:text="${beneficiaria.apellidos}"></td>
+                <td th:text="${beneficiaria.telefono}"></td>
+                <td th:text="${beneficiaria.direccion}"></td>
+                <td th:text="${beneficiaria.edad}"></td>
+                <td th:text="${beneficiaria.codigoCarpeta}"></td>
+                <td>
+                    <a th:href="@{/beneficiarias/editar/{id}(id=${beneficiaria.id})}" class="btn btn-warning btn-sm">Editar</a>
+                    <a th:href="@{/beneficiarias/eliminar/{id}(id=${beneficiaria.id})}" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
